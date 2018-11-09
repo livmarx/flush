@@ -7,9 +7,6 @@ const userMap = props => {
   if (props.userLocation) {
     userLocationMarker = <MapView.Marker coordinate={props.userLocation} />;
   }
-  const userMarkers = props.userPlaces.map(place => {
-    return <MapView.Marker coordinate={place} key={place.id} />;
-  });
   return (
     <View style={styles.mapContainer}>
       <MapView
@@ -27,7 +24,6 @@ const userMap = props => {
         {props.toiletLocations.map(location => {
           return <MapView.Marker coordinate={location} key={location.id} />;
         })}
-        {userMarkers}
       </MapView>
     </View>
   );

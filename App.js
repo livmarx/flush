@@ -9,13 +9,12 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import FetchLocation from './FetchLocation';
 import UserMap from './UserMap';
 
 export default class App extends Component {
   state = {
     userLocation: null,
-    userPlaces: [],
+    // userPlaces: [],
     toiletLocations: [],
   };
 
@@ -39,19 +38,10 @@ export default class App extends Component {
             longitudeDelta: 0.0421,
           },
         });
-        fetch(
-          'https://global-catcher-221917.firebaseio.com/toilets.json'
-          // {
-          //   method: 'POST',
-          //   body: JSON.stringify({
-          //     latitude: position.coords.latitude,
-          //     longitude: position.coords.longitude,
-          //   }),
-          // }
-        )
+        fetch('https://global-catcher-221917.firebaseio.com/toilets.json')
           .then(res => {
             console.log('fetch succeeded', res);
-            return res; // fetch('getPlace')
+            return res;
           })
           .then(res => {
             return res.json();
@@ -72,15 +62,13 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>FLU$H</Text>
-        <View style={{ marginBottom: 20 }}>
-          <Button title="Get User Places" onPress={this.getUserPlacesHandler} />
-        </View>
-        <FetchLocation onGetLocation={this.getUserLocationHandler} />
+        <View style={{ marginBottom: 20 }} />
+        {/* <FetchLocation onGetLocation={this.getUserLocationHandler} /> */}
+        <Button title="Get Location" onPress={this.getUserLocationHandler} />
         <Text style={styles.welcome} />
         <UserMap
           userLocation={this.state.userLocation}
           toiletLocations={this.state.toiletLocations}
-          userPlaces={this.state.userPlaces}
         />
       </View>
     );
