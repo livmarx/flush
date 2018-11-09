@@ -63,9 +63,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>FLU$H</Text>
         <View style={{ marginBottom: 20 }} />
-        {/* <FetchLocation onGetLocation={this.getUserLocationHandler} /> */}
         <Button title="Get Location" onPress={this.getUserLocationHandler} />
-        <Text style={styles.welcome} />
         <UserMap
           userLocation={this.state.userLocation}
           toiletLocations={this.state.toiletLocations}
@@ -80,14 +78,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   welcome: {
-    fontSize: 30,
+    fontSize: 50,
+    color: '#39CCCC',
+    fontWeight: 'bold',
     textAlign: 'center',
     margin: 10,
-    marginTop: 50,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    marginTop: 100,
   },
 });

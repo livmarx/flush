@@ -22,7 +22,13 @@ const userMap = props => {
       >
         {userLocationMarker}
         {props.toiletLocations.map(location => {
-          return <MapView.Marker coordinate={location} key={location.id} />;
+          return (
+            <MapView.Marker
+              coordinate={location}
+              pinColor="#39CCCC"
+              key={location.id}
+            />
+          );
         })}
       </MapView>
     </View>
@@ -32,7 +38,7 @@ const userMap = props => {
 const styles = StyleSheet.create({
   mapContainer: {
     width: '100%',
-    height: 300,
+    height: 400,
   },
   map: {
     width: '100%',
