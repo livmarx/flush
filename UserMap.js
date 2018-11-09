@@ -5,7 +5,9 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 const userMap = props => {
   let userLocationMarker = null;
   if (props.userLocation) {
-    userLocationMarker = <MapView.Marker coordinate={props.userLocation} />;
+    userLocationMarker = (
+      <MapView.Marker coordinate={props.userLocation} pinColor="#ff1a75" />
+    );
   }
   return (
     <View style={styles.mapContainer}>

@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import UserMap from './UserMap';
+import { createStackNavigator } from 'react-navigation';
 
 export default class App extends Component {
   state = {
